@@ -6,27 +6,21 @@
 <title>Sandor Gavin</title>
 
 <style>
-/* ============================= */
 /* Reset */
-/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ============================= */
 /* Base */
-/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
-/* ============================= */
 /* Header / Navigation */
-/* ============================= */
 header {
     background: #fff;
     position: relative;
@@ -49,9 +43,7 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* ============================= */
 /* Hamburger button */
-/* ============================= */
 .hamburger {
     display: none;
     font-size: 28px;
@@ -64,14 +56,14 @@ nav a.active {
     z-index: 200;
 }
 
-/* ============================= */
-/* Main / Video Centering */
-/* ============================= */
+/* Main / Video */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 70vh;
+    position: relative;
+    overflow: hidden;
 }
 
 video {
@@ -81,27 +73,30 @@ video {
     object-fit: contain;
 }
 
-/* ============================= */
-/* Mobile Styles / Hamburger & Video */
-/* ============================= */
+/* Mobile Styles */
 @media (max-width: 768px) {
 
     main {
-        height: 100vh;   /* full viewport height */
+        height: 100vh;
         width: 100%;
-        display: flex;   /* use flex centering */
-        justify-content: center;
-        align-items: center;
         padding: 0;
+        display: block; /* we'll use absolute positioning for video */
+        position: relative;
     }
 
     main video {
-        width: 95%;      /* almost full width */
+        position: absolute;
+        top: 50%;           /* center vertically */
+        left: 50%;          /* center horizontally */
+        transform: translate(-50%, -50%);
+        width: 95%;
         height: auto;
-        max-height: 100%; /* do not exceed screen height */
+        max-height: 95vh;
         object-fit: contain;
+        z-index: 0;
     }
 
+    /* Hamburger menu */
     .hamburger {
         display: block;
     }
@@ -130,10 +125,8 @@ video {
 <body>
 
 <header>
-    <!-- Hamburger button -->
     <button id="menu-toggle" class="hamburger">☰</button>
 
-    <!-- Navigation -->
     <nav id="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
