@@ -6,26 +6,33 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
+/* ============================= */
 /* Reset */
+/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ============================= */
 /* Base */
+/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
+/* ============================= */
 /* Header / Navigation */
+/* ============================= */
 header {
     background: #fff;
     position: relative;
     padding: 20px 0;
     text-align: center;
+    z-index: 100;
 }
 
 nav a {
@@ -42,10 +49,12 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* Hamburger button */
+/* ============================= */
+/* Hamburger button (matches index.html) */
+/* ============================= */
 .hamburger {
     display: none;
-    font-size: 75px;
+    font-size: 75px; /* same as index.html */
     background: none;
     border: none;
     cursor: pointer;
@@ -55,6 +64,7 @@ nav a.active {
     z-index: 200;
 }
 
+/* ============================= */
 /* Main / Contact Layout */
 main {
     display: flex;
@@ -115,8 +125,7 @@ button:hover {
 }
 
 /* ============================= */
-/* Responsive / Hamburger Menu */
-/* ============================= */
+/* Responsive / Hamburger & Mobile */
 @media (max-width: 900px) {
     main {
         flex-direction: column;
@@ -132,17 +141,19 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+    /* Hamburger visible */
     .hamburger {
         display: block;
     }
 
+    /* Navigation slides down */
     nav {
         display: none;
         flex-direction: column;
         gap: 15px;
         background: rgba(255,255,255,0.95);
         position: absolute;
-        top: 60px;
+        top: 60px; /* same as index.html */
         left: 0;
         width: 100%;
         padding: 15px 0;
