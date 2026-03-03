@@ -133,13 +133,34 @@ video {
 /* Mobile Styles / Hamburger Menu */
 /* ============================= */
 @media (max-width: 768px) {
-    main video {
-        width: 100%;       /* fill width */
-        height: auto;      /* maintain aspect ratio */
-        max-height: 100vh; /* don't exceed viewport height */
-        object-fit: cover; /* cover area nicely */
+
+    /* Full-screen video */
+    main {
+        height: 100vh;      /* allow full viewport height */
+        padding: 0;
     }
-}
+
+    main video {
+        width: 100%;        /* full width */
+        height: 100%;       /* fill container height */
+        max-width: none;    /* remove desktop max-width */
+        object-fit: cover;  /* crop to fill nicely */
+    }
+
+    /* Hamburger menu */
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: #fff;
+        position: absolute;
+        top: 60px;          /* below header */
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
 
     nav.active {
         display: flex;
@@ -149,10 +170,11 @@ video {
         display: block;
     }
 
-    /* Optional: make contact form narrower on mobile */
+    /* Contact page responsive */
     .contact-page {
         grid-template-columns: 1fr;
         gap: 40px;
         width: 90%;
+        margin: 0 auto;
     }
 }
