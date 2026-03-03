@@ -6,21 +6,27 @@
 <title>Sandor Gavin</title>
 
 <style>
+/* ============================= */
 /* Reset */
+/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ============================= */
 /* Base */
+/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
+/* ============================= */
 /* Header / Navigation */
+/* ============================= */
 header {
     background: #fff;
     position: relative;
@@ -43,7 +49,9 @@ nav a.active {
     color: #9bd3f5;
 }
 
+/* ============================= */
 /* Hamburger button */
+/* ============================= */
 .hamburger {
     display: none;
     font-size: 28px;
@@ -56,7 +64,9 @@ nav a.active {
     z-index: 200;
 }
 
+/* ============================= */
 /* Main / Video Centering */
+/* ============================= */
 main {
     display: flex;
     justify-content: center;
@@ -73,22 +83,24 @@ video {
     object-fit: contain;
 }
 
+/* ============================= */
 /* Mobile Styles / Hamburger & Video */
+/* ============================= */
 @media (max-width: 768px) {
 
     main {
-        height: 90vh;   /* a bit smaller than full viewport */
+        height: 90vh;   /* almost full viewport */
         width: 100%;
         padding: 0;
     }
 
     main video {
         position: absolute;
-        top: 50%;
+        top: 45%;      /* slightly higher on screen */
         left: 50%;
         transform: translate(-50%, -50%);
         width: 95%;    /* almost full width */
-        height: auto;  /* scale proportionally */
+        height: auto;
         object-fit: contain;
         z-index: 0;
     }
