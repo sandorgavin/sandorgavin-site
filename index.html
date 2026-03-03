@@ -6,6 +6,7 @@
 <title>Sandor Gavin</title>
 
 <style>
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -18,27 +19,35 @@ body {
     color: #000;
 }
 
-/* Navigation */
+/* Header / Navigation */
 header {
+    background: #fff;
+    position: relative;
+    padding: 20px 0;
     text-align: center;
-    padding: 30px 0;
 }
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: #000;
     margin: 0 25px;
     font-size: 16px;
     letter-spacing: 2px;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: #9bd3f5;
 }
 
-nav a.active {
-    color: #9bd3f5;
+/* Hamburger button */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 /* Video Centering */
@@ -53,13 +62,45 @@ video {
     width: 60%;
     max-width: 600px;
 }
-</style>
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: #fff;
+        position: absolute;
+        top: 60px; /* below header */
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <nav>
+    <!-- Hamburger button -->
+    <button id="menu-toggle" class="hamburger">☰</button>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
         <a href="http://www.youtube.com/sandorgavin" target="_blank">Video</a>
@@ -74,6 +115,16 @@ video {
         Your browser does not support the video tag.
     </video>
 </main>
+
+<script>
+// Hamburger menu toggle
+const toggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('main-nav');
+
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
+</script>
 
 </body>
 </html>
