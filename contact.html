@@ -6,25 +6,31 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
+/* ============================= */
 /* Reset */
+/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ============================= */
 /* Base */
+/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
+/* ============================= */
 /* Header / Navigation */
+/* ============================= */
 header {
     background: #fff;
     position: relative;
-    height: 80px; /* same as index.html */
+    padding: 20px 0;
     text-align: center;
     z-index: 100;
 }
@@ -43,27 +49,31 @@ nav a.active {
     color: #9bd3f5;
 }
 
+/* ============================= */
 /* Hamburger button */
+/* ============================= */
 .hamburger {
     display: none;
-    font-size: 75px; /* match index.html */
+    font-size: 75px; 
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 20px;   /* relative to header */
-    right: 20px; /* relative to header */
+    position: fixed; /* FIXED to viewport for consistent placement */
+    top: 20px;
+    right: 20px;
     z-index: 200;
 }
 
+/* ============================= */
 /* Main / Contact Layout */
+/* ============================= */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 120px;
-    min-height: calc(100vh - 80px); /* leave header space */
-    padding: 0 20px;
+    min-height: 70vh;
+    padding: 40px 0;
 }
 
 .logo img {
@@ -115,20 +125,37 @@ button:hover {
     font-size: 14px;
 }
 
-/* Mobile / Hamburger Menu */
-@media (max-width: 768px) {
+/* ============================= */
+/* Responsive / Mobile */
+/* ============================= */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        gap: 60px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
 
+    .logo img {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Show hamburger */
     .hamburger {
         display: block;
     }
 
+    /* Mobile menu */
     nav {
         display: none;
         flex-direction: column;
         gap: 15px;
         background: rgba(255,255,255,0.95);
         position: absolute;
-        top: 80px; /* directly below header */
+        top: 60px;
         left: 0;
         width: 100%;
         padding: 15px 0;
@@ -139,18 +166,6 @@ button:hover {
     nav.active {
         display: flex;
     }
-
-    main {
-        flex-direction: column;
-        gap: 60px;
-        width: 90%;
-        margin: 0 auto;
-        padding: 20px 0;
-    }
-
-    .logo img {
-        width: 250px;
-    }
 }
 </style>
 </head>
@@ -158,8 +173,10 @@ button:hover {
 <body>
 
 <header>
+    <!-- Hamburger button -->
     <button id="menu-toggle" class="hamburger">☰</button>
 
+    <!-- Navigation -->
     <nav id="main-nav">
         <a href="index.html">Home</a>
         <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
@@ -186,27 +203,36 @@ button:hover {
 </main>
 
 <script>
-// Hamburger toggle
+// Hamburger menu toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
+
 toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
 
-// Formspree
+// Formspree submission
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
+
 form.addEventListener("submit", async function(e) {
     e.preventDefault();
+
     const data = new FormData(form);
+
     try {
         const response = await fetch(form.action, {
             method: form.method,
             body: data,
             headers: { 'Accept': 'application/json' }
         });
-        status.textContent = response.ok ? "Thank you for your message." : "There was a problem sending your message.";
-        if (response.ok) form.reset();
+
+        if (response.ok) {
+            status.textContent = "Thank you for your message.";
+            form.reset();
+        } else {
+            status.textContent = "There was a problem sending your message.";
+        }
     } catch (error) {
         status.textContent = "There was a problem sending your message.";
     }
