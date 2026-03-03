@@ -28,9 +28,8 @@ body {
 /* Header / Navigation */
 /* ============================= */
 header {
-    background: #fff;
-    position: relative;   /* keep relative for nav */
-    padding: 0;           /* remove extra padding */
+    position: relative;
+    padding: 20px 0;
     text-align: center;
     z-index: 100;
 }
@@ -49,22 +48,22 @@ nav a.active {
     color: #9bd3f5;
 }
 
+/* ============================= */
 /* Hamburger button */
 .hamburger {
     display: none;
-    font-size: 75px;
+    font-size: 75px;        /* matches index.html */
     background: none;
     border: none;
     cursor: pointer;
-    position: fixed;     /* FIXED to viewport, matches index.html */
+    position: fixed;        /* fixed on viewport */
     top: 20px;
     right: 20px;
-    z-index: 200;
+    z-index: 500;
 }
 
 /* ============================= */
 /* Main / Contact Layout */
-/* ============================= */
 main {
     display: flex;
     justify-content: center;
@@ -72,6 +71,7 @@ main {
     gap: 120px;
     min-height: 70vh;
     padding: 40px 0;
+    position: relative;
 }
 
 .logo img {
@@ -96,7 +96,6 @@ textarea {
     padding: 10px 0;
     margin-bottom: 30px;
     font-size: 14px;
-    font-family: Helvetica, Arial, sans-serif;
     background: transparent;
     outline: none;
 }
@@ -125,11 +124,23 @@ button:hover {
 }
 
 /* ============================= */
-/* Mobile / Hamburger Menu */
-/* ============================= */
-@media (max-width: 768px) {
+/* Mobile / Hamburger & Responsive */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        gap: 60px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
 
-    /* Hamburger button visible */
+    .logo img {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hamburger visible on mobile */
     .hamburger {
         display: block;
     }
@@ -139,31 +150,18 @@ button:hover {
         display: none;
         flex-direction: column;
         gap: 15px;
-        background: rgba(255,255,255,0.95);
-        position: absolute;
-        top: 60px;
+        background: #fff;           /* fully opaque */
+        position: fixed;            /* overlays content */
+        top: 100px;                 /* below hamburger */
         left: 0;
         width: 100%;
         padding: 15px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 100;
+        z-index: 400;               /* below hamburger but above page */
     }
 
     nav.active {
         display: flex;
-    }
-
-    /* Stack content on mobile */
-    main {
-        flex-direction: column;
-        gap: 60px;
-        width: 90%;
-        margin: 0 auto;
-        padding: 80px 0 40px 0; /* extra top padding to avoid overlapping fixed hamburger */
-    }
-
-    .logo img {
-        width: 250px;
     }
 }
 </style>
@@ -202,30 +200,25 @@ button:hover {
 </main>
 
 <script>
-// Hamburger menu toggle
+// Hamburger toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
-
 toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
 
-// Formspree submission
+// Form submission
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
-
 form.addEventListener("submit", async function(e) {
     e.preventDefault();
-
     const data = new FormData(form);
-
     try {
         const response = await fetch(form.action, {
             method: form.method,
             body: data,
             headers: { 'Accept': 'application/json' }
         });
-
         if (response.ok) {
             status.textContent = "Thank you for your message.";
             form.reset();
