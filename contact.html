@@ -6,25 +6,31 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
+/* ============================= */
 /* Reset */
+/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ============================= */
 /* Base */
+/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
+/* ============================= */
 /* Header / Navigation */
+/* ============================= */
 header {
     background: #fff;
-    position: relative;
-    padding: 20px 0;
+    position: relative;   /* keep relative for nav */
+    padding: 0;           /* remove extra padding */
     text-align: center;
     z-index: 100;
 }
@@ -43,20 +49,22 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* Hamburger button - matches index.html exactly */
+/* Hamburger button */
 .hamburger {
     display: none;
     font-size: 75px;
     background: none;
     border: none;
     cursor: pointer;
-    position: fixed;   /* fixed for exact match */
+    position: fixed;     /* FIXED to viewport, matches index.html */
     top: 20px;
     right: 20px;
     z-index: 200;
 }
 
+/* ============================= */
 /* Main / Contact Layout */
+/* ============================= */
 main {
     display: flex;
     justify-content: center;
@@ -88,6 +96,7 @@ textarea {
     padding: 10px 0;
     margin-bottom: 30px;
     font-size: 14px;
+    font-family: Helvetica, Arial, sans-serif;
     background: transparent;
     outline: none;
 }
@@ -115,13 +124,17 @@ button:hover {
     font-size: 14px;
 }
 
-/* Mobile Styles */
+/* ============================= */
+/* Mobile / Hamburger Menu */
+/* ============================= */
 @media (max-width: 768px) {
-    /* Hamburger button shows */
+
+    /* Hamburger button visible */
     .hamburger {
         display: block;
     }
 
+    /* Mobile nav menu */
     nav {
         display: none;
         flex-direction: column;
@@ -133,19 +146,20 @@ button:hover {
         width: 100%;
         padding: 15px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 150;
+        z-index: 100;
     }
 
     nav.active {
         display: flex;
     }
 
+    /* Stack content on mobile */
     main {
         flex-direction: column;
         gap: 60px;
         width: 90%;
         margin: 0 auto;
-        padding: 40px 0;
+        padding: 80px 0 40px 0; /* extra top padding to avoid overlapping fixed hamburger */
     }
 
     .logo img {
@@ -191,6 +205,7 @@ button:hover {
 // Hamburger menu toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
+
 toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
