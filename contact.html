@@ -6,31 +6,26 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
-/* ============================= */
 /* Reset */
-/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ============================= */
 /* Base */
-/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
-/* ============================= */
 /* Header / Navigation */
-/* ============================= */
 header {
     background: #fff;
-    position: relative;  /* needed for absolute hamburger */
-    height: 80px;        /* fixed height matches index.html */
+    position: relative;
+    padding: 20px 0;
+    height: 80px; /* same as index.html */
     text-align: center;
     z-index: 100;
 }
@@ -52,17 +47,16 @@ nav a.active {
 /* Hamburger button */
 .hamburger {
     display: none;
-    font-size: 75px;
+    font-size: 75px; /* same as index.html */
     background: none;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 20px;   /* match index.html */
+    right: 20px; /* match index.html */
     z-index: 200;
 }
 
-/* ============================= */
 /* Main / Contact Layout */
 main {
     display: flex;
@@ -122,7 +116,6 @@ button:hover {
     font-size: 14px;
 }
 
-/* ============================= */
 /* Mobile / Hamburger Menu */
 @media (max-width: 768px) {
 
@@ -138,7 +131,7 @@ button:hover {
         gap: 15px;
         background: rgba(255,255,255,0.95);
         position: absolute;
-        top: 80px;          /* below header height */
+        top: 80px; /* below header height */
         left: 0;
         width: 100%;
         padding: 15px 0;
@@ -169,10 +162,8 @@ button:hover {
 <body>
 
 <header>
-    <!-- Hamburger button -->
     <button id="menu-toggle" class="hamburger">☰</button>
 
-    <!-- Navigation -->
     <nav id="main-nav">
         <a href="index.html">Home</a>
         <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
