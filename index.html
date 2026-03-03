@@ -6,27 +6,21 @@
 <title>Sandor Gavin</title>
 
 <style>
-/* ============================= */
 /* Reset */
-/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ============================= */
 /* Base */
-/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
-/* ============================= */
 /* Header / Navigation */
-/* ============================= */
 header {
     background: #fff;
     position: relative;
@@ -62,9 +56,7 @@ nav a.active {
     z-index: 200;
 }
 
-/* ============================= */
 /* Main / Video Centering */
-/* ============================= */
 main {
     display: flex;
     justify-content: center;
@@ -81,24 +73,23 @@ video {
     object-fit: contain;
 }
 
-/* ============================= */
-/* Mobile Styles / Hamburger & Fullscreen Video */
-/* ============================= */
+/* Mobile Styles / Hamburger & Video */
 @media (max-width: 768px) {
 
     main {
-        height: 100vh;      /* full viewport height */
+        height: 90vh;   /* a bit smaller than full viewport */
         width: 100%;
         padding: 0;
     }
 
     main video {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;       /* fill entire viewport width */
-        height: 100vh;      /* fill entire viewport height */
-        object-fit: cover;  /* crop if needed but fill screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 95%;    /* almost full width */
+        height: auto;  /* scale proportionally */
+        object-fit: contain;
         z-index: 0;
     }
 
@@ -144,7 +135,7 @@ video {
 </header>
 
 <main>
-    <video autoplay muted playsinline loop>
+    <video autoplay muted playsinline>
         <source src="logo.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
