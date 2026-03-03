@@ -29,8 +29,8 @@ body {
 /* ============================= */
 header {
     background: #fff;
-    position: relative;
-    padding: 20px 0;
+    position: relative;  /* needed for absolute hamburger */
+    height: 80px;        /* fixed height matches index.html */
     text-align: center;
     z-index: 100;
 }
@@ -49,18 +49,16 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* ============================= */
-/* Hamburger button (matches index.html) */
-/* ============================= */
+/* Hamburger button */
 .hamburger {
     display: none;
-    font-size: 75px; /* same as index.html */
+    font-size: 75px;
     background: none;
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    right: 0;
     z-index: 200;
 }
 
@@ -125,8 +123,34 @@ button:hover {
 }
 
 /* ============================= */
-/* Responsive / Hamburger & Mobile */
-@media (max-width: 900px) {
+/* Mobile / Hamburger Menu */
+@media (max-width: 768px) {
+
+    /* Hamburger visible */
+    .hamburger {
+        display: block;
+    }
+
+    /* Mobile nav */
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 80px;          /* below header height */
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    /* Contact layout responsive */
     main {
         flex-direction: column;
         gap: 60px;
@@ -137,32 +161,6 @@ button:hover {
 
     .logo img {
         width: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Hamburger visible */
-    .hamburger {
-        display: block;
-    }
-
-    /* Navigation slides down */
-    nav {
-        display: none;
-        flex-direction: column;
-        gap: 15px;
-        background: rgba(255,255,255,0.95);
-        position: absolute;
-        top: 60px; /* same as index.html */
-        left: 0;
-        width: 100%;
-        padding: 15px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 100;
-    }
-
-    nav.active {
-        display: flex;
     }
 }
 </style>
@@ -204,7 +202,6 @@ button:hover {
 // Hamburger menu toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
-
 toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
