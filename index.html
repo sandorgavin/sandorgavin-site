@@ -72,8 +72,6 @@ main {
     justify-content: center;
     align-items: center;
     height: 70vh;
-    position: relative;
-    overflow: hidden;
 }
 
 video {
@@ -89,20 +87,19 @@ video {
 @media (max-width: 768px) {
 
     main {
-        height: 90vh;   /* almost full viewport */
+        height: 100vh;   /* full viewport height */
         width: 100%;
+        display: flex;   /* use flex centering */
+        justify-content: center;
+        align-items: center;
         padding: 0;
     }
 
     main video {
-        position: absolute;
-        top: 45%;      /* slightly higher on screen */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 95%;    /* almost full width */
+        width: 95%;      /* almost full width */
         height: auto;
+        max-height: 100%; /* do not exceed screen height */
         object-fit: contain;
-        z-index: 0;
     }
 
     .hamburger {
