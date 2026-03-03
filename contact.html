@@ -29,7 +29,40 @@ body {
 /* ============================= */
 header {
     text-align: center;
-    padding: 30px 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Sandor Gavin</title>
+
+<style>
+/* ============================= */
+/* Reset */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* Base */
+/* ============================= */
+body {
+    background: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+/* ============================= */
+/* Header / Navigation */
+/* ============================= */
+header {
+    background: #fff;
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
 }
 
 nav a {
@@ -46,25 +79,37 @@ nav a.active {
     color: #9bd3f5;
 }
 
+/* Hamburger button */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+}
+
 /* ============================= */
-/* Contact Layout */
+/* Main / Contact Layout */
 /* ============================= */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
     gap: 120px;
+    min-height: 70vh;
+    padding: 40px 0;
 }
 
-/* Left Logo */
 .logo img {
     width: 350px;
     height: auto;
     display: block;
 }
 
-/* Right Form */
 .form-wrapper {
     width: 320px;
 }
@@ -81,7 +126,6 @@ textarea {
     padding: 10px 0;
     margin-bottom: 30px;
     font-size: 14px;
-    font-family: Helvetica, Arial, sans-serif;
     background: transparent;
     outline: none;
 }
@@ -110,18 +154,45 @@ button:hover {
 }
 
 /* ============================= */
-/* Responsive */
+/* Mobile / Hamburger Menu & Responsive Layout */
 /* ============================= */
 @media (max-width: 900px) {
     main {
         flex-direction: column;
         gap: 60px;
-        height: auto;
+        width: 90%;
+        margin: 0 auto;
         padding: 40px 0;
     }
 
     .logo img {
         width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Hamburger menu */
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 100;
+    }
+
+    nav.active {
+        display: flex;
     }
 }
 </style>
@@ -130,7 +201,11 @@ button:hover {
 <body>
 
 <header>
-    <nav>
+    <!-- Hamburger button -->
+    <button id="menu-toggle" class="hamburger">☰</button>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
         <a href="index.html">Home</a>
         <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
         <a href="http://www.youtube.com/sandorgavin" target="_blank">Video</a>
@@ -140,32 +215,31 @@ button:hover {
 </header>
 
 <main>
-
     <div class="logo">
         <img src="logo.png" alt="Sandor Gavin Logo">
     </div>
 
     <div class="form-wrapper">
-
         <form id="contact-form" action="https://formspree.io/f/xjgeqoll" method="POST">
-
             <input type="text" name="name" placeholder="Name" required>
-
             <input type="email" name="email" placeholder="Email" required>
-
             <textarea name="message" placeholder="Message" rows="5" required></textarea>
-
             <button type="submit">SEND</button>
-
             <p id="form-status"></p>
-
         </form>
-
     </div>
-
 </main>
 
 <script>
+// Hamburger menu toggle
+const toggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('main-nav');
+
+toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
+
+// Form submission with Formspree
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
 
