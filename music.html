@@ -6,6 +6,11 @@
 <title>Music | Sandor Gavin</title>
 
 <style>
+
+/* ============================= */
+/* GLOBAL */
+/* ============================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +19,17 @@
 
 body {
     font-family: Helvetica, Arial, sans-serif;
-    background: #fff;
+    background: #ffffff;
     color: #000;
+    line-height: 1.6;
 }
 
-/* ===== HEADER ===== */
+/* ============================= */
+/* HEADER / NAV */
+/* ============================= */
+
 header {
-    padding: 20px 0;
+    padding: 25px 0;
     text-align: center;
     position: relative;
 }
@@ -29,7 +38,7 @@ nav a {
     text-decoration: none;
     color: #000;
     margin: 0 25px;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 2px;
 }
 
@@ -38,7 +47,8 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* ===== HAMBURGER ===== */
+/* Hamburger */
+
 .hamburger {
     display: none;
     position: fixed;
@@ -65,22 +75,222 @@ nav a.active {
     margin-bottom: 0;
 }
 
-/* ===== MAIN MUSIC SECTION ===== */
-main {
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.brand-hero {
+    text-align: center;
+    padding: 120px 20px 90px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.brand-hero h1 {
+    font-size: 52px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.tagline {
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.social-proof {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    color: #9bd3f5;
+}
+
+.primary-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.primary-button:hover {
+    opacity: 0.75;
+}
+
+/* ============================= */
+/* SECTION LABEL */
+/* ============================= */
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #9bd3f5;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.section-label.center {
+    text-align: center;
+}
+
+/* ============================= */
+/* FEATURED */
+/* ============================= */
+
+.featured {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    max-width: 1100px;
+    margin: 0 auto 140px auto;
+    padding: 0 20px;
+}
+
+.featured-text {
+    flex: 1;
+}
+
+.featured-text h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.featured-text p {
+    color: #555;
+}
+
+/* Fixed Artwork Sizing */
+
+.featured-artwork {
+    flex: 1;
+    max-width: 500px;
+}
+
+.artwork-link {
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.artwork-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.4s ease;
+}
+
+.artwork-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 80px;
-    min-height: 70vh;
+    transition: 0.4s ease;
 }
 
-.music-wrapper {
-    width: 60%;
-    max-width: 600px;
+.artwork-overlay span {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 3px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.4s ease;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
+.artwork-link:hover img {
+    transform: scale(1.05);
+}
+
+.artwork-link:hover .artwork-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.artwork-link:hover .artwork-overlay span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================= */
+/* DISCOGRAPHY */
+/* ============================= */
+
+.discography {
+    max-width: 1100px;
+    margin: 0 auto 140px auto;
+    padding: 0 20px;
+}
+
+.release-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+    margin-top: 50px;
+}
+
+.release-card {
+    text-align: center;
+}
+
+.release-card img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+}
+
+.release-card img:hover {
+    transform: scale(1.04);
+}
+
+.release-card h3 {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+/* ============================= */
+/* SPOTIFY PLAYER */
+/* ============================= */
+
+.full-player {
+    max-width: 900px;
+    margin: 0 auto 160px auto;
+    padding: 0 20px;
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    .featured {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .featured-artwork {
+        max-width: 100%;
+    }
+
+    .release-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-hero h1 {
+        font-size: 38px;
+    }
 
     .hamburger {
         display: block;
@@ -95,24 +305,15 @@ main {
         top: 60px;
         left: 0;
         width: 100%;
-        padding: 15px 0;
+        padding: 20px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     nav.active {
         display: flex;
     }
-
-    main {
-        padding-top: 100px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .music-wrapper {
-        width: 100%;
-    }
 }
+
 </style>
 </head>
 
@@ -136,19 +337,74 @@ main {
 </header>
 
 <main>
-    <div class="music-wrapper">
-        <iframe 
-            data-testid="embed-iframe" 
-            style="border-radius:12px" 
-            src="https://open.spotify.com/embed/artist/3WdYHvFVTB7OeUODdtrSfM?utm_source=generator" 
-            width="100%" 
-            height="600" 
-            frameborder="0" 
-            allowfullscreen="" 
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-            loading="lazy">
-        </iframe>
+
+<section class="brand-hero">
+    <h1>SANDOR GAVIN</h1>
+    <p class="tagline">Synth music for daydreamers and insomniacs.</p>
+    <p class="social-proof">31,000+ Monthly Listeners on Spotify</p>
+    <a href="https://open.spotify.com/artist/3WdYHvFVTB7OeUODdtrSfM" target="_blank" class="primary-button">
+        LISTEN ON SPOTIFY
+    </a>
+</section>
+
+<section class="featured">
+
+    <div class="featured-text">
+        <span class="section-label">FEATURED RELEASE</span>
+        <h2>Afterlight</h2>
+        <p>
+            A nostalgic blend of shimmering synths, warm analog basslines,
+            and atmospheric textures designed for pool-side cocktails
+            and reflective moments.
+        </p>
     </div>
+
+    <div class="featured-artwork">
+        <a href="https://sandorgavin.bandcamp.com/album/afterlight" target="_blank" class="artwork-link">
+            <img src="afterlight.jpg" alt="Afterlight Album Cover">
+            <div class="artwork-overlay">
+                <span>LISTEN NOW</span>
+            </div>
+        </a>
+    </div>
+
+</section>
+
+<section class="discography">
+    <span class="section-label center">FULL CATALOG</span>
+
+    <div class="release-grid">
+
+        <div class="release-card">
+            <img src="echoes.png" alt="Echoes">
+            <h3>Echoes</h3>
+        </div>
+
+        <div class="release-card">
+            <img src="PRIMEVAL COVER.jpg" alt="Primeval">
+            <h3>Primeval</h3>
+        </div>
+
+        <div class="release-card">
+            <img src="Definitive Motion.jpg" alt="Definitive Motion">
+            <h3>Definitive Motion</h3>
+        </div>
+
+    </div>
+</section>
+
+<section class="full-player">
+    <iframe 
+        style="border-radius:12px" 
+        src="https://open.spotify.com/embed/artist/3WdYHvFVTB7OeUODdtrSfM" 
+        width="100%" 
+        height="600" 
+        frameborder="0" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+    </iframe>
+</section>
+
 </main>
 
 <script>
