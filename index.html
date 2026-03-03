@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandor Gavin</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+/* Navigation */
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0 25px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #9bd3f5;
+}
+
+nav a.active {
+    color: #9bd3f5;
+}
+
+/* Video Centering */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+video {
+    width: 60%;
+    max-width: 600px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
+        <a href="http://www.youtube.com/sandorgavin" target="_blank">Video</a>
+        <a href="https://sandorgavin.bandcamp.com/merch" target="_blank">Shop</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <video autoplay muted playsinline>
+        <source src="logo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</main>
+
+</body>
+</html>

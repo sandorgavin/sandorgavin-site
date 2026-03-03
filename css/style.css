@@ -1,0 +1,121 @@
+/* ============================= */
+/* Reset */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* Base */
+/* ============================= */
+body {
+    background: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+/* ============================= */
+/* Header */
+/* ============================= */
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 30px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #9bd3f5;
+}
+
+/* ============================= */
+/* Main Base */
+/* ============================= */
+main {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================= */
+/* Home Page */
+/* ============================= */
+.home-video {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+}
+
+/* ============================= */
+/* Contact Page */
+/* ============================= */
+.contact-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 900px;
+    align-items: center;
+}
+
+/* Left side */
+.contact-left {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-left img {
+    width: 350px;
+    height: auto;
+    display: block;
+}
+
+/* Right side */
+.contact-right {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    border: none;
+    border-bottom: 1px solid #000;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    font-size: 14px;
+    background: transparent;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form button {
+    border: 1px solid #000;
+    background: transparent;
+    padding: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #000;
+    color: #fff;
+}
