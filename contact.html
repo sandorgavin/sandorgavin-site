@@ -6,9 +6,7 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
-/* ============================= */
 /* Reset & Base */
-/* ============================= */
 * {
     margin: 0;
     padding: 0;
@@ -21,15 +19,13 @@ body {
     color: #000;
 }
 
-/* ============================= */
 /* Header / Navigation */
-/* ============================= */
 header {
     background: #fff;
     position: relative;
     padding: 20px 0;
     text-align: center;
-    z-index: 200; /* higher than main content */
+    z-index: 200;
 }
 
 nav a {
@@ -53,19 +49,17 @@ nav a.active {
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
+    position: fixed;  /* fixed like index.html for exact alignment */
     top: 20px;
     right: 20px;
-    z-index: 250; /* above everything */
+    z-index: 250;
 }
 
-/* ============================= */
 /* Main / Contact Layout */
-/* ============================= */
 main {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* start at top so header isn’t affected */
+    align-items: flex-start;
     gap: 120px;
     min-height: 70vh;
     padding: 40px 20px;
@@ -122,9 +116,7 @@ button:hover {
     font-size: 14px;
 }
 
-/* ============================= */
 /* Responsive / Mobile */
-/* ============================= */
 @media (max-width: 900px) {
     main {
         flex-direction: column;
@@ -152,13 +144,13 @@ button:hover {
         flex-direction: column;
         gap: 15px;
         background: rgba(255,255,255,0.95);
-        position: absolute;
-        top: 60px; /* same as index.html */
+        position: fixed; /* fixed like index.html */
+        top: 60px;
         left: 0;
         width: 100%;
         padding: 15px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 220;
+        z-index: 240;
     }
 
     nav.active {
@@ -171,10 +163,8 @@ button:hover {
 <body>
 
 <header>
-    <!-- Hamburger button -->
     <button id="menu-toggle" class="hamburger">☰</button>
 
-    <!-- Navigation -->
     <nav id="main-nav">
         <a href="index.html">Home</a>
         <a href="http://www.linktr.ee/sandorgavin" target="_blank">Music</a>
