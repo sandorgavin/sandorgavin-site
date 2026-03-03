@@ -61,6 +61,8 @@ main {
     justify-content: center;
     align-items: center;
     height: 70vh;
+    position: relative;
+    overflow: hidden;
 }
 
 video {
@@ -130,21 +132,26 @@ video {
 }
 
 /* ============================= */
-/* Mobile Styles / Hamburger Menu */
+/* Mobile Styles / Hamburger Menu & Fullscreen Video */
 /* ============================= */
 @media (max-width: 768px) {
 
     /* Full-screen video */
     main {
-        height: 100vh;      /* allow full viewport height */
+        height: 100vh;      /* full viewport height */
+        width: 100%;
         padding: 0;
+        display: block;     /* disable flex centering */
     }
 
     main video {
-        width: 100%;        /* full width */
-        height: 100%;       /* fill container height */
-        max-width: none;    /* remove desktop max-width */
-        object-fit: cover;  /* crop to fill nicely */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  /* fill container without distortion */
+        z-index: 0;
     }
 
     /* Hamburger menu */
@@ -152,7 +159,7 @@ video {
         display: none;
         flex-direction: column;
         gap: 15px;
-        background: #fff;
+        background: rgba(255,255,255,0.95);
         position: absolute;
         top: 60px;          /* below header */
         left: 0;
