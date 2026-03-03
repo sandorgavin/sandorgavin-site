@@ -6,28 +6,36 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
-/* Reset & Base */
+/* ============================= */
+/* RESET */
+/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ============================= */
+/* BASE */
+/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
-/* Header / Navigation */
+/* ============================= */
+/* HEADER */
+/* ============================= */
 header {
     background: #fff;
-    position: relative;
-    padding: 20px 0;
     text-align: center;
-    z-index: 200;
+    padding: 20px 0;
 }
 
+/* ============================= */
+/* NAV LINKS */
+/* ============================= */
 nav a {
     text-decoration: none;
     color: #000;
@@ -42,29 +50,32 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* Hamburger button */
+/* ============================= */
+/* HAMBURGER — LOCKED TO VIEWPORT */
+/* ============================= */
 .hamburger {
     display: none;
     font-size: 75px;
     background: none;
     border: none;
     cursor: pointer;
-    position: fixed;  /* fixed like index.html for exact alignment */
+
+    position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 250;
+    z-index: 9999;
 }
 
-/* Main / Contact Layout */
+/* ============================= */
+/* MAIN LAYOUT */
+/* ============================= */
 main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 120px;
     min-height: 70vh;
-    padding: 40px 20px;
-    position: relative;
-    z-index: 1;
+    padding: 80px 20px 40px;
 }
 
 .logo img {
@@ -116,14 +127,15 @@ button:hover {
     font-size: 14px;
 }
 
-/* Responsive / Mobile */
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
 @media (max-width: 900px) {
     main {
         flex-direction: column;
         gap: 60px;
         width: 90%;
         margin: 0 auto;
-        padding: 40px 0;
         align-items: center;
     }
 
@@ -133,24 +145,23 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    /* Show hamburger */
+
     .hamburger {
         display: block;
     }
 
-    /* Hamburger menu styling */
     nav {
         display: none;
         flex-direction: column;
         gap: 15px;
         background: rgba(255,255,255,0.95);
-        position: fixed; /* fixed like index.html */
-        top: 60px;
+        position: fixed;
+        top: 90px;
         left: 0;
         width: 100%;
-        padding: 15px 0;
+        padding: 20px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 240;
+        z-index: 9000;
     }
 
     nav.active {
@@ -163,7 +174,7 @@ button:hover {
 <body>
 
 <header>
-    <button id="menu-toggle" class="hamburger">xxx</button>
+    <button id="menu-toggle" class="hamburger">&#9776;</button>
 
     <nav id="main-nav">
         <a href="index.html">Home</a>
@@ -191,7 +202,7 @@ button:hover {
 </main>
 
 <script>
-// Hamburger menu toggle
+// Hamburger toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
 
