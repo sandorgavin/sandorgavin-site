@@ -6,36 +6,27 @@
 <title>Contact | Sandor Gavin</title>
 
 <style>
-/* ============================= */
-/* RESET */
-/* ============================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ============================= */
-/* BASE */
-/* ============================= */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
-/* ============================= */
-/* HEADER */
-/* ============================= */
+/* ================= HEADER ================= */
 header {
     background: #fff;
-    text-align: center;
     padding: 20px 0;
+    text-align: center;
+    position: relative;
 }
 
-/* ============================= */
-/* NAV LINKS */
-/* ============================= */
+/* Navigation Links */
 nav a {
     text-decoration: none;
     color: #000;
@@ -50,25 +41,20 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* ============================= */
-/* HAMBURGER — LOCKED TO VIEWPORT */
-/* ============================= */
+/* ================= HAMBURGER ================= */
 .hamburger {
     display: none;
     font-size: 75px;
     background: none;
     border: none;
     cursor: pointer;
-
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 9999;
 }
 
-/* ============================= */
-/* MAIN LAYOUT */
-/* ============================= */
+/* ================= CONTACT LAYOUT ================= */
 main {
     display: flex;
     justify-content: center;
@@ -80,8 +66,6 @@ main {
 
 .logo img {
     width: 350px;
-    height: auto;
-    display: block;
 }
 
 .form-wrapper {
@@ -122,28 +106,7 @@ button:hover {
     color: #fff;
 }
 
-#form-status {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
-@media (max-width: 900px) {
-    main {
-        flex-direction: column;
-        gap: 60px;
-        width: 90%;
-        margin: 0 auto;
-        align-items: center;
-    }
-
-    .logo img {
-        width: 250px;
-    }
-}
-
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
     .hamburger {
@@ -155,17 +118,26 @@ button:hover {
         flex-direction: column;
         gap: 15px;
         background: rgba(255,255,255,0.95);
-        position: fixed;
-        top: 90px;
+        position: absolute;
+        top: 60px;
         left: 0;
         width: 100%;
-        padding: 20px 0;
+        padding: 15px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 9000;
     }
 
     nav.active {
         display: flex;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 250px;
     }
 }
 </style>
@@ -191,49 +163,21 @@ button:hover {
     </div>
 
     <div class="form-wrapper">
-        <form id="contact-form" action="https://formspree.io/f/xjgeqoll" method="POST">
+        <form action="https://formspree.io/f/xjgeqoll" method="POST">
             <input type="text" name="name" placeholder="Name" required>
             <input type="email" name="email" placeholder="Email" required>
             <textarea name="message" placeholder="Message" rows="5" required></textarea>
             <button type="submit">SEND</button>
-            <p id="form-status"></p>
         </form>
     </div>
 </main>
 
 <script>
-// Hamburger toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
 
 toggle.addEventListener('click', () => {
     nav.classList.toggle('active');
-});
-
-// Formspree submission
-const form = document.getElementById("contact-form");
-const status = document.getElementById("form-status");
-
-form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-
-    try {
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            status.textContent = "Thank you for your message.";
-            form.reset();
-        } else {
-            status.textContent = "There was a problem sending your message.";
-        }
-    } catch (error) {
-        status.textContent = "There was a problem sending your message.";
-    }
 });
 </script>
 

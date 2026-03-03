@@ -6,29 +6,27 @@
 <title>Sandor Gavin</title>
 
 <style>
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Base */
 body {
     background: #ffffff;
     font-family: Helvetica, Arial, sans-serif;
     color: #000;
 }
 
-/* Header / Navigation */
+/* ================= HEADER ================= */
 header {
     background: #fff;
-    position: relative;
     padding: 20px 0;
     text-align: center;
-    z-index: 100;
+    position: relative;
 }
 
+/* Navigation Links */
 nav a {
     text-decoration: none;
     color: #000;
@@ -43,27 +41,25 @@ nav a.active {
     color: #9bd3f5;
 }
 
-/* Hamburger button */
+/* ================= HAMBURGER ================= */
 .hamburger {
     display: none;
     font-size: 75px;
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 200;
+    z-index: 9999;
 }
 
-/* Main / Video */
+/* ================= MAIN VIDEO ================= */
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 70vh;
-    position: relative;
-    overflow: hidden;
 }
 
 video {
@@ -73,10 +69,9 @@ video {
     object-fit: contain;
 }
 
-/* Mobile Styles */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-    /* Hamburger menu */
     .hamburger {
         display: block;
     }
@@ -92,32 +87,23 @@ video {
         width: 100%;
         padding: 15px 0;
         box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 100;
     }
 
     nav.active {
         display: flex;
     }
 
-    /* Full-screen, slightly higher centered video */
     main {
         height: 100vh;
-        width: 100%;
-        padding: 0;
-        display: block;
-        position: relative;
     }
 
     main video {
-        position: fixed;      /* ignores header, always centers in viewport */
+        position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -55%); /* nudged slightly up */
+        transform: translate(-50%, -53%);
         width: 95%;
-        height: auto;
         max-height: 95vh;
-        object-fit: contain;
-        z-index: 0;
     }
 }
 </style>
@@ -126,7 +112,7 @@ video {
 <body>
 
 <header>
-    <button id="menu-toggle" class="hamburger">☰</button>
+    <button id="menu-toggle" class="hamburger">&#9776;</button>
 
     <nav id="main-nav">
         <a href="index.html" class="active">Home</a>
@@ -140,12 +126,10 @@ video {
 <main>
     <video autoplay muted playsinline>
         <source src="logo.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
 </main>
 
 <script>
-// Hamburger menu toggle
 const toggle = document.getElementById('menu-toggle');
 const nav = document.getElementById('main-nav');
 
