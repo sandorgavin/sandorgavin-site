@@ -87,6 +87,7 @@ nav a.active {
 }
 
 .brand-hero h1 {
+    font-family: "Optima", "Segoe UI", "Helvetica Neue", sans-serif;
     font-size: 52px;
     letter-spacing: 6px;
     font-weight: 600;
@@ -149,7 +150,7 @@ nav a.active {
     justify-content: space-between;
     gap: 80px;
     max-width: 1100px;
-    margin: 0 auto 140px auto;
+    margin: 0 auto 100px auto;
     padding: 0 20px;
 }
 
@@ -166,12 +167,12 @@ nav a.active {
     color: #555;
 }
 
-/* Fixed Artwork Sizing */
-
 .featured-artwork {
     flex: 1;
     max-width: 500px;
 }
+
+/* Artwork Hover Shared Style */
 
 .artwork-link {
     position: relative;
@@ -223,6 +224,17 @@ nav a.active {
 }
 
 /* ============================= */
+/* SEPARATOR LINE */
+/* ============================= */
+
+.separator {
+    max-width: 800px;
+    height: 1px;
+    background: #e5e5e5;
+    margin: 0 auto 120px auto;
+}
+
+/* ============================= */
 /* DISCOGRAPHY */
 /* ============================= */
 
@@ -243,20 +255,10 @@ nav a.active {
     text-align: center;
 }
 
-.release-card img {
-    width: 100%;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    transition: 0.3s ease;
-}
-
-.release-card img:hover {
-    transform: scale(1.04);
-}
-
 .release-card h3 {
     font-size: 15px;
     letter-spacing: 1px;
+    margin-top: 15px;
 }
 
 /* ============================= */
@@ -370,23 +372,40 @@ nav a.active {
 
 </section>
 
+<div class="separator"></div>
+
 <section class="discography">
     <span class="section-label center">FULL CATALOG</span>
 
     <div class="release-grid">
 
         <div class="release-card">
-            <img src="echoes.png" alt="Echoes">
+            <a href="https://sandorgavin.bandcamp.com/album/echoes" target="_blank" class="artwork-link">
+                <img src="echoes.png" alt="Echoes">
+                <div class="artwork-overlay">
+                    <span>LISTEN NOW</span>
+                </div>
+            </a>
             <h3>Echoes</h3>
         </div>
 
         <div class="release-card">
-            <img src="PRIMEVAL COVER.jpg" alt="Primeval">
+            <a href="https://sandorgavin.bandcamp.com/album/primeval" target="_blank" class="artwork-link">
+                <img src="PRIMEVAL COVER.jpg" alt="Primeval">
+                <div class="artwork-overlay">
+                    <span>LISTEN NOW</span>
+                </div>
+            </a>
             <h3>Primeval</h3>
         </div>
 
         <div class="release-card">
-            <img src="Definitive Motion.jpg" alt="Definitive Motion">
+            <a href="https://sandorgavin.bandcamp.com/album/definitive-motion" target="_blank" class="artwork-link">
+                <img src="Definitive Motion.jpg" alt="Definitive Motion">
+                <div class="artwork-overlay">
+                    <span>LISTEN NOW</span>
+                </div>
+            </a>
             <h3>Definitive Motion</h3>
         </div>
 
