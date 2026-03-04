@@ -92,8 +92,19 @@ main {
     width: 350px;
 }
 
+/* ===== FORM ELEVATION ===== */
 .form-wrapper {
     width: 320px;
+    padding: 30px;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
 }
 
 form {
@@ -110,6 +121,12 @@ textarea {
     font-size: 14px;
     background: transparent;
     outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-bottom: 1px solid #9bd3f5;
 }
 
 textarea {
@@ -122,11 +139,13 @@ button[type="submit"] {
     padding: 10px;
     letter-spacing: 2px;
     cursor: pointer;
+    transition: 0.3s ease, transform 0.2s ease;
 }
 
 button[type="submit"]:hover {
     background: #000;
     color: #fff;
+    transform: scale(1.05);
 }
 
 /* ===== MOBILE ===== */
@@ -161,6 +180,11 @@ button[type="submit"]:hover {
 
     .logo img {
         width: 250px;
+    }
+
+    .form-wrapper {
+        width: 90%;
+        padding: 25px;
     }
 }
 </style>
